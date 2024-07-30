@@ -6424,3 +6424,14 @@ pub fn init(
 "#
     );
 }
+
+#[test]
+fn long_function_defintions_gh3377() {
+    assert_format_rewrite!(
+        r"fn do_menu_items(acc: Queue(MenuItem), from tasks: List(Task)) -> List(MenuItem) {}",
+        r#"fn do_menu_items(acc: Queue(MenuItem), from tasks: List(Task)) -> List(MenuItem) {
+  todo
+}
+"#,
+    );
+}
